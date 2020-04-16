@@ -17,4 +17,8 @@ export class UploadService {
       });  
   }
 
+  public insertDB(){
+    return this.httpClient.get("http://localhost:3000/insertDB");
+  }
+
 }

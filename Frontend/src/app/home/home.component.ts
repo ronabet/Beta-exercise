@@ -3,6 +3,7 @@ import { HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';  
 import { catchError, map } from 'rxjs/operators';  
 import { UploadService } from  '../upload.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { UploadService } from  '../upload.service';
 export class HomeComponent implements OnInit {
 
   @ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;files  = [];  
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: UploadService, public httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -58,6 +59,14 @@ export class HomeComponent implements OnInit {
       this.uploadFiles();  
     };  
     fileUpload.click();  
-}
+
+   
+  }
+
+  onClickInsert(){ 
+    this.uploadService.insertDB().subscribe((res: any) => {
+        console.log(res);  
+      });
+  }
 
 }
