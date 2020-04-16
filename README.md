@@ -1,10 +1,10 @@
 # Beta-exercise - File uploads website and server
 
-run Backend:
+For run Backend:
 ```javascript
 node server.js
 ```
-run Frontend with 
+For run Frontend: 
 ```javascript
 ng serve -o
 ```
